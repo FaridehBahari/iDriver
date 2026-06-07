@@ -12,7 +12,7 @@ iDriver is a probabilistic graphical model that identifies positively selected c
 ### 1. Installation
 
 ```bash
-git clone https://github.com/computationalcancergenomics-eng/iDriver.git 
+git clone https://github.com/FaridehBahari/iDriver.git 
 ```
 
 ### 2. Required data files
