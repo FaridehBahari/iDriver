@@ -270,7 +270,7 @@ add_scores_2MAF <- function(path_SNV_offLine, path_indel_offLine,
 
 define_cadd_vcf_cols <- function(maf){
   colnames(maf) <- c("Chrom", "Start_position", "End_position",
-                     "Reference_Allele", "Tumor_Seq_Allele2", "Donor_ID",
+                     "Reference_Allele", "Tumor_Seq_Allele2", "Donor_ID", "Tumor_Sample_Barcode",
                      "ref_context", "Variant_Type", "Project_Code",
                      "Variant_Classification")
   

@@ -1,0 +1,40 @@
+# List of cohorts
+cohorts=(
+  "Biliary-AdenoCA"
+  "Lung-AdenoCA"
+  "Lung-SCC"
+  "CNS-GBM"
+  "Head-SCC"
+  "Skin-Melanoma"
+  "Lymph-BNHL"
+  "Eso-AdenoCA"
+  
+  
+)
+
+
+# Loop through each cohort and run the command
+for cohort in "${cohorts[@]}"; do
+input_file="inputs/mutation_files/PCAWG/ICGC_and_TCGA/rmHypers/${cohort}_SNV_MNV_INDEL.annot.txt"
+pretrained_file="inputs/mutation_maps/${cohort}_SNV_MNV_INDEL.Pretrained.h5"
+output_prefix="${cohort}"
+
+DigDriver.py elementDriver "$input_file" "$pretrained_file" PCAWG_all_elts --f-bed inputs/annotions/noncoding/grch37.PCAWG_noncoding.bed --outdir output/elemDriver/rmHypers/ --outpfx "$output_prefix"
+done
+
+
+
+cohorts2=(
+  "ColoRect-AdenoCA"
+  "Stomach-AdenoCA"
+  "Uterus-AdenoCA"
+)
+
+# Loop through each cohort and run the command
+for coh in "${cohorts2[@]}"; do
+input_file="inputs/mutation_files/PCAWG/ICGC_and_TCGA/rmHypers/${coh}_SNV_MNV_INDEL.annot.txt"
+pretrained_file="inputs/mutation_maps/${coh}_SNV_MNV_INDEL_msi_low.Pretrained.h5"
+output_prefix="${coh}"
+
+DigDriver.py elementDriver "$input_file" "$pretrained_file" PCAWG_all_elts --f-bed inputs/annotions/noncoding/grch37.PCAWG_noncoding.bed --outdir output/elemDriver/rmHypers/ --outpfx "$output_prefix"
+done
